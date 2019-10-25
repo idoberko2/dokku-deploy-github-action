@@ -1,0 +1,13 @@
+name: "Dokku Deploy"
+description: "Deploy to a dokku instance using Github actions"
+inputs:
+  app-name:
+    description: "The dokku app name"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ secrets.SSH_PRIVATE_KEY }}
+    - ${{ secrets.DOKKU_HOST }}
+    - ${{ inputs.app-name }}
