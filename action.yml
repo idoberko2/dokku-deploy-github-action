@@ -1,13 +1,29 @@
 name: "Dokku Deploy"
 description: "Deploy to a dokku instance using Github actions"
 inputs:
+  ssh-private-key:
+    description: "The ssh private key to the dokku instance. WARNING: use a secret! Do not pass a plain text value!"
+    required: true
+  dokku-user:
+    description: "The user to use for ssh (Default: dokku)"
+    required: false
+    default: "dokku"
+  dokku-host:
+    description: "The dokku host to ssh into"
+    required: true
   app-name:
     description: "The dokku app name"
     required: true
+  remote-branch:
+    description: "The branch to push on the remote repository (Default: master)"
+    required: false
+    default: "master"
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ secrets.SSH_PRIVATE_KEY }}
-    - ${{ secrets.DOKKU_HOST }}
+    - ${{ inputs.ssh-private-key }}
+    - ${{ inputs.dokku-user }}
+    - ${{ inputs.dokku-host }}
     - ${{ inputs.app-name }}
+    - ${{ inputs.remote-branch }}

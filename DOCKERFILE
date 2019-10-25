@@ -1,5 +1,0 @@
-FROM ilyasemenov/gitlab-ci-git-push
-
-COPY entrypoint.sh /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
