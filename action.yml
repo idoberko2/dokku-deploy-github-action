@@ -1,5 +1,9 @@
 name: "Dokku Deploy"
+author: "Ido Berkovich"
 description: "Deploy to a dokku instance using Github actions"
+branding:
+  icon: "upload-cloud"
+  color: "green"
 inputs:
   ssh-private-key:
     description: "The ssh private key to the dokku instance. WARNING: use a secret! Do not pass a plain text value!"
