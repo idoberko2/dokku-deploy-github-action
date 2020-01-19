@@ -22,6 +22,10 @@ inputs:
     description: "The branch to push on the remote repository (Default: master)"
     required: false
     default: "master"
+  git-push-flags:
+    description: "Additional flags to be passed to the git push command. Could be used to force push"
+    required: false
+    default: ""
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -31,3 +35,4 @@ runs:
     - ${{ inputs.dokku-host }}
     - ${{ inputs.app-name }}
     - ${{ inputs.remote-branch }}
+    - ${{ inputs.git-push-flags }}
