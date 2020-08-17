@@ -8,6 +8,8 @@ This action makes deployment to Dokku as easy as possible!
 
 The private ssh key used for Dokku deployments. Never use as plain text! Configure it as a secret in your repository by navigating to https://github.com/USERNAME/REPO/settings/secrets
 
+- Your private key must *not* have a passphrase
+
 **Required**
 
 ### dokku-user
