@@ -6,6 +6,7 @@ DOKKU_HOST=$3
 DOKKU_APP_NAME=$4
 DOKKU_REMOTE_BRANCH=$5
 GIT_PUSH_FLAGS=$6
+SSH_PORT=$7
 
 # Setup the SSH environment
 mkdir -p ~/.ssh
@@ -25,4 +26,4 @@ GIT_COMMAND="git push deploy $REMOTE_REF $GIT_PUSH_FLAGS"
 echo "GIT_COMMAND=$GIT_COMMAND"
 
 # Push to Dokku git repository
-GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" $GIT_COMMAND
+GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p $SSH_PORT" $GIT_COMMAND
