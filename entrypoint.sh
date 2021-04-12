@@ -26,3 +26,6 @@ echo "GIT_COMMAND=$GIT_COMMAND"
 
 # Push to Dokku git repository
 GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" $GIT_COMMAND
+
+# remove remote
+git remote rm deploy
