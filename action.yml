@@ -1,6 +1,6 @@
-name: "Dokku Deploy action"
+name: "Dokku Deploy action 2"
 author: "Ido Berkovich"
-description: "Deploy to a dokku instance using Github actions"
+description: "Deploy to a dokku instance using Github actions - removing remote after process allowing for multiple deploy targets in one go"
 branding:
   icon: "upload-cloud"
   color: "green"
