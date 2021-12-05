@@ -30,6 +30,10 @@ inputs:
     description: "Custom port for ssh host"
     required: false
     default: "22"
+  commit:
+    description: "Commit to push to dokku. Defaults to $GITHUB_SHA"
+    required: false
+    default: ""
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -41,3 +45,4 @@ runs:
     - ${{ inputs.remote-branch }}
     - ${{ inputs.git-push-flags }}
     - ${{ inputs.ssh-port }}
+    - ${{ inputs.commit }}

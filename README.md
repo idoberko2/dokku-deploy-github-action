@@ -44,6 +44,11 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 Port for ssh host. If not specified, `22` will be used.
 
+### commit
+
+Commit to deploy. If not specified, `$GITHUB_SHA` (current commit) will be used.
+
+
 ## Example
 
 Note: `actions/checkout` must preceed this action in order for the repository data to be exposed for the action.
