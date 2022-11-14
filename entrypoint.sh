@@ -18,12 +18,12 @@ ssh-keyscan $DOKKU_HOST >> ~/.ssh/known_hosts
 # Setup the git environment
 git_repo="$DOKKU_USER@$DOKKU_HOST:$DOKKU_APP_NAME"
 cd "$GITHUB_WORKSPACE"
-git remote add deploy "$git_repo"
+git remote add "$DOKKU_APP_NAME" "$git_repo"
 
 # Prepare to push to Dokku git repository
 REMOTE_REF="$COMMIT:refs/heads/$DOKKU_REMOTE_BRANCH"
 
-GIT_COMMAND="git push deploy $REMOTE_REF $GIT_PUSH_FLAGS"
+GIT_COMMAND="git push "$DOKKU_APP_NAME" $REMOTE_REF $GIT_PUSH_FLAGS"
 echo "GIT_COMMAND=$GIT_COMMAND"
 
 # Push to Dokku git repository
