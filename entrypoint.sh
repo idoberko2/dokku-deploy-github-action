@@ -8,12 +8,23 @@ DOKKU_REMOTE_BRANCH=$5
 GIT_PUSH_FLAGS=$6
 SSH_PORT=$7
 COMMIT="${8:-$GITHUB_SHA}"
+MONGODB_URI=$9
+PORT=$10
 
 # Setup the SSH environment
 mkdir -p ~/.ssh
 eval `ssh-agent -s`
 ssh-add - <<< "$SSH_PRIVATE_KEY"
 ssh-keyscan $DOKKU_HOST >> ~/.ssh/known_hosts
+
+# Create .env file
+rm -rf .env
+echo "MONGODB_URI=$MONGODB_URI" >> .env
+echo "PORT=$PORT" >> .env
+
+# COMMIT .env file
+git add .env
+git commit -m "Updated .env file" --no-verify
 
 # Setup the git environment
 git_repo="$DOKKU_USER@$DOKKU_HOST:$DOKKU_APP_NAME"
