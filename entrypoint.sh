@@ -9,7 +9,7 @@ GIT_PUSH_FLAGS=$6
 SSH_PORT=$7
 COMMIT="${8:-$GITHUB_SHA}"
 MONGODB_URI=$9
-PORT=$10
+SERVER_PORT=$10
 
 # Setup the SSH environment
 mkdir -p ~/.ssh
@@ -20,7 +20,7 @@ ssh-keyscan $DOKKU_HOST >> ~/.ssh/known_hosts
 # Create .env file
 rm -rf .env
 echo "MONGODB_URI=$MONGODB_URI" >> .env
-echo "PORT=$PORT" >> .env
+echo "PORT=$SERVER_PORT" >> .env
 
 # COMMIT .env file
 git add .env

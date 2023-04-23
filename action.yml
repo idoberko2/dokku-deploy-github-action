@@ -34,6 +34,12 @@ inputs:
     description: "Commit to push to dokku. Defaults to $GITHUB_SHA"
     required: false
     default: ""
+  MONGODB_URI:
+    description: "MONGODB_URI"
+    required: true
+  SERVER_PORT:
+    description: "Port on which server runs"
+    required: true
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -46,3 +52,5 @@ runs:
     - ${{ inputs.git-push-flags }}
     - ${{ inputs.ssh-port }}
     - ${{ inputs.commit }}
+    - ${{inputs.MONGODB_URI}}
+    - ${{inputs.SERVER_PORT}}
